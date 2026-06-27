@@ -21,10 +21,10 @@ except HfHubHTTPError:
     print(f"Hugging Face Dataset Repo '{repo_id}' created.")
 
 # Upload the data folder to the Hugging Face repository
-# Use the absolute path for the data folder to ensure it's found correctly.
+# Use the relative path for the data folder for GitHub Actions compatibility.
 api.upload_folder(
-    folder_path="/content/tourism_project/data", # Changed to absolute path
+    folder_path="tourism_project/data", # Changed to relative path
     repo_id=repo_id,
     repo_type=repo_type,
 )
-print(f"Data from '/content/tourism_project/data' uploaded to Hugging Face Dataset Hub '{repo_id}'.")
+print(f"Data from 'tourism_project/data' uploaded to Hugging Face Dataset Hub '{repo_id}'.")
